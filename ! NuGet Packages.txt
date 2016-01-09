@@ -1,0 +1,8 @@
+Install-Package Microsoft.AspNet.WebApi -ProjectName Acme.Web -Source nuget.org
+Install-Package Autofac.WebApi2 -Version 3.4.0 -ProjectName Acme.Web -Source nuget.org
+
+Install-Package Microsoft.AspNet.WebApi.Core -Version 5.2.3 -ProjectName Acme.Web.Tests -Source nuget.org
+Install-Package xunit -Version 2.1.0 -ProjectName Acme.Web.Tests -Source nuget.org
+Install-Package xunit.runner.console -Version 2.1.0 -ProjectName Acme.Web.Tests -Source nuget.org
+Install-Package xunit.runner.visualstudio -Version 2.1.0 -ProjectName Acme.Web.Tests -Source nuget.org
+Install-Package Moq -Version 4.2.1510.2205 -ProjectName Acme.Web.Tests -Source nuget.org
