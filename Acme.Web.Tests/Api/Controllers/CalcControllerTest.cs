@@ -120,10 +120,7 @@ namespace Acme.Web.Tests.Api.Controllers
             // assert
             Assert.IsType<WrappedHttpActionResult>(actionResult);
 
-            var contentResult = actionResult as WrappedHttpActionResult;
-            Assert.NotNull(contentResult);
-
-            HttpResponseMessage response = await contentResult.ExecuteAsync(CancellationToken.None);
+            HttpResponseMessage response = await actionResult.ExecuteAsync(CancellationToken.None);
             Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
             Assert.Equal("Internal Server Error: Check your calculation!", response.ReasonPhrase);
         }
