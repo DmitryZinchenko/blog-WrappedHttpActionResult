@@ -5,22 +5,22 @@ using Newtonsoft.Json.Serialization;
 
 namespace Acme.Web
 {
-	public static class FormatterConfig
-	{
-		public static void Register(HttpConfiguration configuration)
-		{
-			configuration.Formatters.Clear();
+    public static class FormatterConfig
+    {
+        public static void Register(HttpConfiguration configuration)
+        {
+            configuration.Formatters.Clear();
 
-			var jsonFormatter = new JsonMediaTypeFormatter
-			{
-				SerializerSettings = new JsonSerializerSettings
-				{
-					Formatting = Formatting.Indented,
-					ContractResolver = new CamelCasePropertyNamesContractResolver()
-				}
-			};
+            var jsonFormatter = new JsonMediaTypeFormatter
+            {
+                SerializerSettings = new JsonSerializerSettings
+                {
+                    Formatting = Formatting.Indented,
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                }
+            };
 
-			configuration.Formatters.Add(jsonFormatter);
-		}
-	}
+            configuration.Formatters.Add(jsonFormatter);
+        }
+    }
 }

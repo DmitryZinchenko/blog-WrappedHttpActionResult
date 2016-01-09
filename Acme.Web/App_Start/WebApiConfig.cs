@@ -2,11 +2,11 @@
 
 namespace Acme.Web
 {
-	public static class WebApiConfig
-	{
-		public static void Register(HttpConfiguration config)
-		{
-			config.MapHttpAttributeRoutes();
-		}
-	}
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            config.MapHttpAttributeRoutes();
+        }
+    }
 }
