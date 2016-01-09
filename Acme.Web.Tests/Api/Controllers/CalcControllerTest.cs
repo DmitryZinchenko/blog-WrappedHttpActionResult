@@ -15,25 +15,25 @@ namespace Acme.Web.Tests.Api.Controllers
 {
 	public class CalcControllerTest
 	{
-        [Fact]
-        public void CalcAValue_ReturnsOkNegotiatedContentResult()
-        {
-            //System.Diagnostics.Debugger.Launch();
+		[Fact]
+		public void CalcAValue_ReturnsOkNegotiatedContentResult()
+		{
+			//System.Diagnostics.Debugger.Launch();
 
-            // arrange
-            var mock = new Mock<ICalcEngine>();
-            mock.Setup(x => x.Calc(It.IsInRange<int>(1, int.MaxValue, Range.Inclusive))).Returns<int>(v => 10 % v);
+			// arrange
+			var mock = new Mock<ICalcEngine>();
+			mock.Setup(x => x.Calc(It.IsInRange<int>(1, int.MaxValue, Range.Inclusive))).Returns<int>(v => 10 % v);
 
-            var controller = new CalcController(mock.Object);
+			var controller = new CalcController(mock.Object);
 
-            // act
-            IHttpActionResult actionResult = controller.CalcAValue(10);
+			// act
+			IHttpActionResult actionResult = controller.CalcAValue(10);
 
-            //  assert
-            Assert.IsType<OkNegotiatedContentResult<int>>(actionResult);
-        }
-        
-        [Fact]
+			//  assert
+			Assert.IsType<OkNegotiatedContentResult<int>>(actionResult);
+		}
+
+		[Fact]
 		public void CalcAValue_ThrowsDivideByZeroException()
 		{
 			//System.Diagnostics.Debugger.Launch();
@@ -43,28 +43,28 @@ namespace Acme.Web.Tests.Api.Controllers
 			mock.Setup(x => x.Calc(It.IsAny<int>())).Throws<DivideByZeroException>();
 
 			var controller = new CalcController(mock.Object);
-			
+
 			// act and assert
 			Assert.Throws<DivideByZeroException>(() => { controller.CalcAValue(int.MinValue); });
 		}
 
-        [Fact]
-        public void CalcBValue_ReturnsOkNegotiatedContentResult()
-        {
-            //System.Diagnostics.Debugger.Launch();
+		[Fact]
+		public void CalcBValue_ReturnsOkNegotiatedContentResult()
+		{
+			//System.Diagnostics.Debugger.Launch();
 
-            // arrange
-            var mock = new Mock<ICalcEngine>();
-            mock.Setup(x => x.Calc(It.IsInRange<int>(1, int.MaxValue, Range.Inclusive))).Returns<int>(v => 10 % v);
+			// arrange
+			var mock = new Mock<ICalcEngine>();
+			mock.Setup(x => x.Calc(It.IsInRange<int>(1, int.MaxValue, Range.Inclusive))).Returns<int>(v => 10 % v);
 
-            var controller = new CalcController(mock.Object);
+			var controller = new CalcController(mock.Object);
 
-            // act
-            IHttpActionResult actionResult = controller.CalcBValue(10);
+			// act
+			IHttpActionResult actionResult = controller.CalcBValue(10);
 
-            //  assert
-            Assert.IsType<OkNegotiatedContentResult<int>>(actionResult);
-        }
+			//  assert
+			Assert.IsType<OkNegotiatedContentResult<int>>(actionResult);
+		}
 
 		[Fact]
 		public void CalcBValue_ReturnsExceptionResult()
@@ -76,7 +76,7 @@ namespace Acme.Web.Tests.Api.Controllers
 			mock.Setup(x => x.Calc(It.IsAny<int>())).Throws<DivideByZeroException>();
 
 			var controller = new CalcController(mock.Object);
-			
+
 			// act
 			IHttpActionResult actionResult = controller.CalcBValue(int.MinValue);
 
@@ -88,20 +88,20 @@ namespace Acme.Web.Tests.Api.Controllers
 		[Fact]
 		public void CalcCValue_ReturnsOkNegotiatedContentResult()
 		{
-            //System.Diagnostics.Debugger.Launch();
+			//System.Diagnostics.Debugger.Launch();
 
-            // arrange
-            var mock = new Mock<ICalcEngine>();
-            mock.Setup(x => x.Calc(It.IsInRange<int>(1, int.MaxValue, Range.Inclusive))).Returns<int>(v => 10 % v);
+			// arrange
+			var mock = new Mock<ICalcEngine>();
+			mock.Setup(x => x.Calc(It.IsInRange<int>(1, int.MaxValue, Range.Inclusive))).Returns<int>(v => 10 % v);
 
-            var controller = new CalcController(mock.Object);
+			var controller = new CalcController(mock.Object);
 
-            // act
-            IHttpActionResult actionResult = controller.CalcCValue(10);
+			// act
+			IHttpActionResult actionResult = controller.CalcCValue(10);
 
-            //  assert
-            Assert.IsType<OkNegotiatedContentResult<int>>(actionResult);
-        }
+			//  assert
+			Assert.IsType<OkNegotiatedContentResult<int>>(actionResult);
+		}
 
 		[Fact]
 		public async void CalcCValue_ReturnsInternalServerErrorWithReasonPhrase()
